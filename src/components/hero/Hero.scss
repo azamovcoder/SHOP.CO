@@ -1,51 +1,201 @@
-.hero{
+.hero {
+  background: #f2f0f1;
+  &__container {
+    display: flex;
+    align-items: end;
     position: relative;
-    background: url("../../assets/home/hero.jpg") no-repeat;
     background-size: cover;
     background-position: right;
     width: 100%;
-    height: 770px;
-    padding: 70px 0;
-    .container{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-
-    }
-    &__title{
-        font-family: "Geologica", sans-serif;
-        font-size: 64px;
-        font-size: 700;
-        max-width: 577px;
-    }
-    &__desc{
-        max-width: 545px;
+    padding: 0px 16px;
+    display: flex;
+    gap: 30px;
+  }
+  &__title {
+    font-family: "Geologica", sans-serif;
+    font-size: 64px;
+    font-size: 700;
+    max-width: 577px;
+  }
+  &__desc {
+    max-width: 545px;
+    color: #00000099;
+  }
+  &__button {
+    padding: 13px 56px;
+    border: none;
+    color: #fff;
+    border-radius: 20px;
+    background: black;
+    max-width: 180px;
+  }
+  &__info {
+    display: flex;
+    gap: 20px;
+    &__item {
+      h3 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 16px;
         color: #00000099;
+      }
+      &__middle {
+        padding: 0px 20px;
+        border-left: 2px solid #0000001a;
+        border-right: 2px solid #0000001a;
+      }
     }
-    &__button{
-        padding: 13px 56px;
-        border: none;
-        color: #fff;
-        border-radius: 20px;
-        background: black;
-        max-width: 180px;
-    }
-    &__info{
-        display: flex;
-        gap: 20px;
-        &__item{
+  }
 
-            h3{
-                font-size: 40px;
-            }
-            p{
-                font-size: 16px;
-                color: #00000099;
-            }
-            &__middle{
-                padding: 0px 20px;
-            border-left: 2px solid #0000001A;
-            border-right: 2px solid #0000001A;            }
-        }
+  &__left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 0;
+  }
+  &__right {
+    width: 50&;
+    img {
+      width: 100%;
+      height: 550px;
     }
+  }
+  @media (max-width: 1100px) {
+    &__right {
+      width: 50&;
+      img {
+        width: 100%;
+        height: 450px;
+      }
+    }
+  }
+
+  @media (max-width: 1050px) {
+    &__left {
+      width: 40%;
+    }
+    &__title {
+      font-size: 34px;
+      font-size: 700;
+      max-width: 477px;
+    }
+    &__desc {
+      max-width: 545px;
+      color: #00000099;
+    }
+    &__button {
+      padding: 13px 56px;
+      border: none;
+      color: #fff;
+      border-radius: 20px;
+      background: black;
+      max-width: 180px;
+    }
+    &__info {
+      display: flex;
+      gap: 10px;
+      &__item {
+        h3 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 16px;
+          color: #00000099;
+        }
+        &__middle {
+          padding: 0px 20px;
+          border-left: 2px solid #0000001a;
+          border-right: 2px solid #0000001a;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    &__container {
+      gap: 20px;
+      flex-direction: column;
+    }
+    &__left {
+      width: 100%;
+    }
+    &__desc {
+      max-width: 400px;
+    }
+    &__right {
+      width: 100%;
+      img {
+        height: 600px;
+      }
+    }
+
+    &__info {
+      display: flex;
+      gap: 20px;
+      &__item {
+        h3 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 16px;
+          color: #00000099;
+        }
+        &__middle {
+          padding: 0px 20px;
+          border-left: 2px solid #0000001a;
+          border-right: 2px solid #0000001a;
+        }
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    &__right {
+      img {
+        height: 450px;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    &__right {
+      img {
+        height: 400px;
+      }
+    }
+    &__info {
+      padding: 0px 30px;
+      flex-wrap: wrap;
+      &__item {
+        &__middle {
+          padding: 2px 0px;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    }
+  }
+  @media (max-width: 350px) {
+    &__right {
+      img {
+        height: 300px;
+      }
+    }
+  }
+}
+
+.hero__bottom {
+  width: 100%;
+  display: flex;
+  background: black;
+  padding: 15px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__item {
+    padding: 0px 20px;
+  }
 }
