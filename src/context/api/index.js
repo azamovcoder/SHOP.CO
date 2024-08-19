@@ -5,7 +5,7 @@ import { logout } from "../slices/authSlices";
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api;
   const rawBaseQuery = fetchBaseQuery({
-    baseUrl: "https://backend-1-zv7i.onrender.com",
+    baseUrl: "http://localhost:8000",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("x-auth-token");
       if (token) {

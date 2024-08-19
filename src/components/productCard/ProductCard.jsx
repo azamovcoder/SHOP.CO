@@ -3,6 +3,8 @@ import "../products/Products.scss";
 import { LiaStarHalf, LiaStarSolid } from "react-icons/lia";
 import React, { Fragment } from "react";
 
+import { NavLink } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
   const getRating = () => {
     let res = [];
@@ -36,9 +38,11 @@ const ProductCard = ({ product }) => {
   return (
     <Fragment>
       <div key={product?.id} className="products__cards__card">
-        <div className="products__cards__card__img">
-          <img src={product?.urls[0]} alt="product.img" />
-        </div>
+        <NavLink to={`/singlePage/${product?._id}`}>
+          <div className="products__cards__card__img">
+            <img src={product?.urls[0]} alt="product.img" />
+          </div>
+        </NavLink>
         <div className="products__cards__card__info">
           <h3 className="products__cards__card__info__title">
             {product?.title}
