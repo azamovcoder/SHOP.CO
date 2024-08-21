@@ -2,11 +2,6 @@ import "./Hero.scss";
 
 import React, { Fragment } from "react";
 
-import Brend1 from "../../assets/home/b1.svg";
-import Brend2 from "../../assets/home/b2.svg";
-import Brend3 from "../../assets/home/b3.svg";
-import Brend4 from "../../assets/home/b4.svg";
-import Brend5 from "../../assets/home/b5.svg";
 import HeroImg from "../../assets/home/hero.jpg";
 
 const Hero = () => {
@@ -41,25 +36,6 @@ const Hero = () => {
           </div>
           <div className="hero__right">
             <img src={HeroImg} alt="" />
-          </div>
-        </div>
-      </div>
-      <div className="hero__bottom ">
-        <div className="container">
-          <div className="hero__bottom__item">
-            <img src={Brend1} alt="brend.svg" />
-          </div>
-          <div className="hero__bottom__item">
-            <img src={Brend2} alt="brend.svg" />
-          </div>
-          <div className="hero__bottom__item">
-            <img src={Brend3} alt="brend.svg" />
-          </div>
-          <div className="hero__bottom__item">
-            <img src={Brend4} alt="brend.svg" />
-          </div>
-          <div className="hero__bottom__item">
-            <img src={Brend5} alt="brend.svg" />
           </div>
         </div>
       </div>

@@ -18,8 +18,8 @@ const Footer = () => {
   return (
     <Fragment>
       <footer>
-        <div className="container">
-          <div className="footer__register">
+        <div className="footer__register">
+          <div className="container">
             <h2 className="footer__register__title">
               STAY UPTO DATE ABOUT OUR LATEST OFFERS
             </h2>

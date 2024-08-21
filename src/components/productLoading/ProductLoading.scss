@@ -1,0 +1,75 @@
+.arrivals {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  &__loading {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+    overflow: auto;
+
+    @media (max-width: 850px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__loader {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__loading {
+    width: 100%;
+  }
+
+  &__loader-img {
+    height: 250px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #eee, #ddd, #eee);
+    background-size: 200%;
+    animation: bgMove 1s linear 0s infinite;
+    @media (max-width: 450px) {
+      height: 200px;
+    }
+  }
+
+  &__loader-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    div {
+      height: 25px;
+      background: linear-gradient(90deg, #eee, #ddd, #eee);
+      background-size: 200%;
+      animation: bgMove 1s linear 0s infinite;
+      border: 1px solid transparent;
+      border-radius: 10px;
+    }
+
+    div:nth-child(1) {
+      width: 90%;
+    }
+
+    div:nth-child(2) {
+      width: 60%;
+    }
+
+    div:nth-child(3) {
+      width: 40%;
+    }
+  }
+}
+
+@keyframes bgMove {
+  to {
+    background-position: 200%;
+  }
+}

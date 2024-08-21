@@ -1,9 +1,16 @@
 import "../products/Products.scss";
 
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { LiaStarHalf, LiaStarSolid } from "react-icons/lia";
 import React, { Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { FiShoppingCart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
+import { RiShoppingCart2Fill } from "react-icons/ri";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import { addToCart } from "../../context/slices/cartSlices";
+import { toggleHeart } from "../../context/slices/wishlistSlices";
 
 const ProductCard = ({ product }) => {
   const getRating = () => {
@@ -34,19 +41,46 @@ const ProductCard = ({ product }) => {
 
     return res;
   };
+  const wishlistData = useSelector((state) => state.wishlist.value);
+  const cartData = useSelector((state) => state.cart.value);
   console.log(product);
+  const dispatch = useDispatch();
+
   return (
     <Fragment>
       <div key={product?.id} className="products__cards__card">
-        <NavLink to={`/singlePage/${product?._id}`}>
-          <div className="products__cards__card__img">
-            <img src={product?.urls[0]} alt="product.img" />
-          </div>
-        </NavLink>
+        <div className="products__cards__card__img">
+          <img src={product?.urls[0]} alt="product.img" />
+          <button
+            onClick={() => dispatch(toggleHeart(product))}
+            className="products__cards__card__img__btn"
+          >
+            {wishlistData.some((element) => element._id === product?._id) ? (
+              <FaHeart />
+            ) : (
+              <FaRegHeart />
+            )}
+          </button>
+        </div>
         <div className="products__cards__card__info">
-          <h3 className="products__cards__card__info__title">
-            {product?.title}
-          </h3>
+          <button
+            onClick={() => {
+              dispatch(addToCart(product));
+            }}
+            className="products__cards__card__info__card-btn"
+          >
+            {cartData?.some((element) => element._id === product._id) ? (
+              <RiShoppingCart2Fill />
+            ) : (
+              <RiShoppingCart2Line />
+            )}
+          </button>
+          <NavLink to={`/singlePage/${product?._id}`}>
+            <h3 className="products__cards__card__info__title">
+              {product?.title}
+            </h3>
+          </NavLink>
+
           <div className="products__cards__card__info__rating">
             <div className="products__cards__card__info__rating__rate">
               {getRating()}

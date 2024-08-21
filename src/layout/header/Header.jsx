@@ -1,19 +1,21 @@
 import "./Header.scss";
 
+import { FaBars, FaRegHeart } from "react-icons/fa6";
 import React, { Fragment, memo, useState } from "react";
 
-import { FaBars } from "react-icons/fa6";
 import { FiShoppingCart } from "react-icons/fi";
 import { HiOutlineX } from "react-icons/hi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import Xbutton from "../../assets/home/x.svg";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [remove, setRemove] = useState(true);
   const [show, setShow] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const wishlistData = useSelector((state) => state.wishlist.value);
+  const cartData = useSelector((state) => state.cart.value);
   return (
     <Fragment>
       {remove ? (
@@ -56,23 +58,23 @@ const Header = () => {
             <button onClick={() => setShow((p) => !p)}>
               <FaBars />
             </button>
-            <h2>SHOP.CO</h2>
+            <NavLink to={"/"}>
+              <h2>SHOP.CO</h2>
+            </NavLink>
           </div>
           <ul className={`header__list  ${show ? "show" : ""} `}>
             <button onClick={() => setShow((p) => !p)}>
               <HiOutlineX />
             </button>
             <li className="header__list__item">
-              <NavLink>Shop </NavLink>
+              <NavLink to={"shop"}>Shop </NavLink>
             </li>
             <li className="header__list__item">
               <NavLink>On Sale</NavLink>
             </li>
+
             <li className="header__list__item">
-              <NavLink>New Arrivals</NavLink>
-            </li>
-            <li className="header__list__item">
-              <NavLink>Brands</NavLink>
+              <NavLink to={"brands"}>Brands</NavLink>
             </li>
           </ul>
           <div className="header__search">
@@ -85,9 +87,20 @@ const Header = () => {
             <button onClick={() => setShowSearch((p) => !p)}>
               <IoSearchOutline />
             </button>
-            <NavLink>
-              <FiShoppingCart />
-            </NavLink>
+            <div className="header__right__links__link">
+              <span>{wishlistData.length ? wishlistData.length : 0}</span>
+
+              <NavLink to={"favorites"}>
+                <FaRegHeart />
+              </NavLink>
+            </div>
+            <div className="header__right__links__link">
+              <span>{cartData.length ? cartData.length : 0}</span>
+
+              <NavLink to={"cart"}>
+                <FiShoppingCart />
+              </NavLink>
+            </div>
             <NavLink>
               <IoPersonCircleOutline />
             </NavLink>

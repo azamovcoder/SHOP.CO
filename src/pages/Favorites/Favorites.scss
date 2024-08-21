@@ -1,0 +1,17 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 100px 0;
+  img {
+    width: 40%;
+  }
+  a {
+    padding: 5px 10px;
+    background: #00000016;
+    border-radius: 20px;
+    color: gray;
+  }
+}

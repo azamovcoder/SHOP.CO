@@ -2,6 +2,7 @@ import "./Home.scss";
 
 import React, { Fragment } from "react";
 
+import Brands from "../../components/brends/Brands";
 import Browse from "../../components/browse/Browse";
 import Comments from "../../components/comments/Comments";
 import Hero from "../../components/hero/Hero";
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <Fragment>
       <Hero />
+      <Brands />
       <NewArrivals />
       <TopSelling />
       <Browse />

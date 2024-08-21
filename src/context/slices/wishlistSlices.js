@@ -9,11 +9,11 @@ const wishlistSlice = createSlice({
   initialState,
   reducers: {
     toggleHeart: (state, action) => {
-      let index = state.value.findIndex((i) => i.id === action.payload.id);
+      let index = state.value.findIndex((i) => i._id === action.payload._id);
       if (index < 0) {
         state.value = [...state.value, action.payload];
       } else {
-        state.value = state.value.filter((i) => i.id !== action.payload.id);
+        state.value = state.value.filter((i) => i._id !== action.payload._id);
       }
       localStorage.setItem("wishlist", JSON.stringify(state.value));
     },

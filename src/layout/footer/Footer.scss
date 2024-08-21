@@ -1,13 +1,18 @@
 .footer__register {
   position: absolute;
-  top: -20%;
+  top: -100px;
+  left: 10%;
+  right: 10%;
+
   background: #000;
   color: #fff;
   padding: 40px 60px;
   border-radius: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__title {
     max-width: 50%;
     font-size: 40px;
@@ -47,7 +52,7 @@
 }
 
 footer {
-  margin-top: 70px;
+  margin-top: 150px;
   position: relative;
   background: #f0f0f0;
 }

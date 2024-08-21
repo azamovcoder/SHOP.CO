@@ -1,0 +1,31 @@
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 70px;
+  background: black;
+  animation: scroll 25s linear infinite; /* Adjusted speed */
+}
+
+.item {
+  flex: 0 0 auto;
+  margin-right: 10px; /* Optional spacing between items */
+  text-align: center;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 5px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%); /* Scroll the full width of content */
+  }
+}
