@@ -5,7 +5,7 @@ import { logout } from "../slices/authSlices";
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api;
   const rawBaseQuery = fetchBaseQuery({
-    baseUrl: "http://localhost:8000",
+    baseUrl: "http://shop.azamovabdulaziz.uz",
     prepareHeaders: (headers) => {
       const token = localStorage.getItem("x-auth-token");
       if (token) {
@@ -31,6 +31,6 @@ const baseQueryWithRetry = retry(baseQuery, { maxRetries: 0 });
 export const api = createApi({
   reducerPath: "myApi",
   baseQuery: baseQueryWithRetry,
-  tagTypes: ["Product", "Category", "User"],
+  tagTypes: ["Product", "Category", "Admin", "Profile"],
   endpoints: () => ({}),
 });

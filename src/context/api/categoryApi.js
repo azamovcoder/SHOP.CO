@@ -1,6 +1,6 @@
 import { api } from "./index";
 
-export const productApi = api.injectEndpoints({
+export const categoryApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCategory: build.query({
       query: (params) => ({
@@ -20,15 +20,15 @@ export const productApi = api.injectEndpoints({
     }),
     updateCategory: build.mutation({
       query: ({ id, body }) => ({
-        url: `/categories/${id}`,
-        method: "PUT", // or "PATCH"
+        url: `/category/${id}`,
+        method: "PATCH",
         body,
       }),
       invalidatesTags: ["Category"],
     }),
     deleteCategory: build.mutation({
       query: (id) => ({
-        url: `/categories/${id}`,
+        url: `/category/${_id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Category"],
@@ -41,4 +41,4 @@ export const {
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
   useDeleteCategoryMutation,
-} = productApi;
+} = categoryApi;

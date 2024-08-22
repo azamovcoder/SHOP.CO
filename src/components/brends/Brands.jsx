@@ -9,69 +9,71 @@ import brend5 from "../../assets/home/b5.svg";
 
 const Brands = () => {
   return (
-    <div className="scroll-container">
-      <div className="scroll-content">
-        <div className="item">
-          <img src={brend1} alt="" />
+    <div className="hero__bottom">
+      <div className="scroll-container">
+        <div className="scroll-content">
+          <div className="item">
+            <img src={brend1} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend2} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend3} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend4} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend5} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend1} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend2} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend3} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend4} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend5} alt="" />
+          </div>
         </div>
-        <div className="item">
-          <img src={brend2} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend3} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend4} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend5} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend1} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend2} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend3} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend4} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend5} alt="" />
-        </div>
-      </div>
-      <div className="scroll-content">
-        <div className="item">
-          <img src={brend1} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend2} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend3} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend4} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend5} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend1} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend2} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend3} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend4} alt="" />
-        </div>
-        <div className="item">
-          <img src={brend5} alt="" />
+        <div className="scroll-content">
+          <div className="item">
+            <img src={brend1} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend2} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend3} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend4} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend5} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend1} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend2} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend3} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend4} alt="" />
+          </div>
+          <div className="item">
+            <img src={brend5} alt="" />
+          </div>
         </div>
       </div>
     </div>

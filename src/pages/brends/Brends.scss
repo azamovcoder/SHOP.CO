@@ -1,12 +1,18 @@
 .brands {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 70px;
   &__frame {
     height: 200px;
+    box-shadow: 10px 5px 5px #00000019;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     img {
-      width: 100%;
-      height: 100%;
+      background: red;
+      width: 50%;
+      height: 50%;
       object-fit: contain;
     }
   }

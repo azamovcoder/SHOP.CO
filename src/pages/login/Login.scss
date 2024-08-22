@@ -1,0 +1,64 @@
+.login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login__form {
+  width: 25%;
+  &__form {
+    width: 100%;
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .login__form {
+    width: 45%;
+    &__form {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .login__form {
+    width: 65%;
+    &__form {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .login__form {
+    width: 75%;
+    &__form {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .login__form {
+    width: 85%;
+    &__form {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

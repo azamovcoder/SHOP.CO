@@ -101,7 +101,7 @@ const Header = () => {
                 <FiShoppingCart />
               </NavLink>
             </div>
-            <NavLink>
+            <NavLink to={"/admin/create-product"}>
               <IoPersonCircleOutline />
             </NavLink>
           </div>
