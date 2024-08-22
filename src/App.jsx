@@ -13,9 +13,9 @@ import Layout from "./layout/Layout";
 import Login from "./pages/login/Login";
 import ManageCategory from "./pages/admin/manageCategory/ManageCategory";
 import ManageProduct from "./pages/admin/manageProduct/ManageProduct";
+import NotFound from "./pages/notFound/NotFound";
 import Shop from "./pages/Shop/Shop";
 import SinglePage from "./pages/SinglePage/SinglePage";
-import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -28,6 +28,7 @@ const App = () => {
           <Route path="cart" element={<Cart />} />
           <Route path="shop" element={<Shop />} />
           <Route path="brands" element={<BrandPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="/" element={<Auth />}>
@@ -39,7 +40,6 @@ const App = () => {
           </Route>
         </Route>
       </Routes>
-      <ToastContainer />
     </Fragment>
   );
 };

@@ -9,11 +9,11 @@ const BrandPage = () => {
     <div className="container">
       <div className="brands">
         {Brands?.map((el) => (
-          <div className="brands__frame">
-            <NavLink to={el?.url}>
+          <NavLink to={el?.url}>
+            <div className="brands__frame">
               <img src={el?.img} alt="brand.img" />
-            </NavLink>
-          </div>
+            </div>
+          </NavLink>
         ))}
       </div>
     </div>

@@ -6,6 +6,7 @@ import BrandImg13 from "../assets/brands/brend13.jpg";
 import BrandImg14 from "../assets/brands/brend14.jpg";
 import BrandImg15 from "../assets/brands/brend15.png";
 import BrandImg16 from "../assets/brands/bal.png";
+import BrandImg17 from "../assets/brands/coach.jpg";
 import BrandImg2 from "../assets/brands/luis.webp";
 import BrandImg3 from "../assets/brands/chanel.png";
 import BrandImg4 from "../assets/brands/brand4.jpg";
@@ -134,5 +135,10 @@ export const Brands = [
     id: 15,
     img: BrandImg16,
     url: "https://www.balenciaga.com/en-en",
+  },
+  {
+    id: 16,
+    img: BrandImg17,
+    url: "https://www.coachoutlet.com/",
   },
 ];

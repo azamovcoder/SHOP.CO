@@ -28,7 +28,7 @@ export const categoryApi = api.injectEndpoints({
     }),
     deleteCategory: build.mutation({
       query: (id) => ({
-        url: `/category/${_id}`,
+        url: `/category/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Category"],

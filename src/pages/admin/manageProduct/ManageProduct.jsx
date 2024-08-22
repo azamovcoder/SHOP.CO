@@ -1,18 +1,23 @@
 import "./ManageProduct.scss";
 
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
+import DeleteProduct from "./deleteProduct/DeleteProduct";
+import EditProduct from "./editProduct/EditProduct";
+import Module from "../../../components/Module/Module";
 import { useGetProductsQuery } from "../../../context/api/productApi";
 
 const ManageProduct = () => {
   const { data } = useGetProductsQuery();
+  const [deleteProduct, setDeleteProduct] = useState(null);
+  const [editProduct, setEditProduct] = useState(null);
   const products = data?.payload;
   console.log(products);
   return (
     <Fragment>
       <div className="manage__products">
         {products?.map((el) => (
-          <div className="manage__products__product">
+          <div key={el?._id} className="manage__products__product">
             <div className="manage__products__product__img">
               <img src={el?.urls[0]} alt="" />
             </div>
@@ -23,13 +28,33 @@ const ManageProduct = () => {
                 <p>${el?.oldPrice}</p>
               </div>
               <div className="manage__products__product__info__buttons">
-                <button>edit</button>
-                <button>delete</button>
+                <button onClick={() => setEditProduct(el)}>edit</button>
+                <button onClick={() => setDeleteProduct(el)}>delete</button>
               </div>
             </div>
           </div>
         ))}
       </div>
+      {deleteProduct ? (
+        <Module close={() => setDeleteProduct(null)}>
+          <DeleteProduct
+            deleteProduct={deleteProduct}
+            setDeleteProduct={setDeleteProduct}
+          />
+        </Module>
+      ) : (
+        <></>
+      )}
+      {editProduct ? (
+        <Module width={600} close={setEditProduct}>
+          <EditProduct
+            editProduct={editProduct}
+            setEditProduct={setEditProduct}
+          />
+        </Module>
+      ) : (
+        <></>
+      )}
     </Fragment>
   );
 };

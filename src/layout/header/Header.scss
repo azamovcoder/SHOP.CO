@@ -40,7 +40,7 @@ header {
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: 9;
   width: 100%;
   background: #fff;
 }
@@ -215,7 +215,7 @@ header {
 }
 .overlay {
   display: none;
-  z-index: 8;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;

@@ -5,7 +5,6 @@ import { LiaStarHalf, LiaStarSolid } from "react-icons/lia";
 import React, { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { FiShoppingCart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { RiShoppingCart2Line } from "react-icons/ri";
@@ -43,7 +42,6 @@ const ProductCard = ({ product }) => {
   };
   const wishlistData = useSelector((state) => state.wishlist.value);
   const cartData = useSelector((state) => state.cart.value);
-  console.log(product);
   const dispatch = useDispatch();
 
   return (
