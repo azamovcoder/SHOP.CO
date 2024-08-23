@@ -8,7 +8,7 @@ import Module from "../../../components/Module/Module";
 import { useGetProductsQuery } from "../../../context/api/productApi";
 
 const ManageProduct = () => {
-  const { data } = useGetProductsQuery();
+  const { data } = useGetProductsQuery({ limit: 10 });
   const [deleteProduct, setDeleteProduct] = useState(null);
   const [editProduct, setEditProduct] = useState(null);
   const products = data?.payload;
