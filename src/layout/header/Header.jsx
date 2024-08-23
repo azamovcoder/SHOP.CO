@@ -9,6 +9,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import ProductSearch from "../../components/productsearch/ProductSearch";
+import SearchProductTop from "../../components/searchProductTop/SearchProductTop";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
   const wishlistData = useSelector((state) => state.wishlist.value);
   const cartData = useSelector((state) => state.cart.value);
   const [search, setSearch] = useState("");
+  const [search2, setSearch2] = useState("");
   return (
     <Fragment>
       {remove ? (
@@ -50,9 +52,20 @@ const Header = () => {
               <span>
                 <IoSearchOutline />
               </span>
-              <input placeholder="Search for products..." type="text" />
+              <input
+                placeholder="Search for products..."
+                onChange={(e) => setSearch2(e.target.value)}
+                value={search2}
+                type="text"
+              />
+              {search2 ? <SearchProductTop search={search2} /> : <></>}
             </div>
-            <button onClick={() => setShowSearch((p) => !p)}>
+            <button
+              onClick={() => {
+                setShowSearch((p) => !p);
+                setSearch2("");
+              }}
+            >
               <HiOutlineX />
             </button>
           </div>
@@ -70,9 +83,6 @@ const Header = () => {
             </button>
             <li className="header__list__item">
               <NavLink to={"shop"}>Shop </NavLink>
-            </li>
-            <li className="header__list__item">
-              <NavLink>On Sale</NavLink>
             </li>
 
             <li className="header__list__item">

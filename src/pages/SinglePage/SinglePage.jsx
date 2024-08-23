@@ -1,18 +1,26 @@
 import "./SinglePage.scss";
 
+import { FaCircleCheck, FaHeart, FaRegHeart } from "react-icons/fa6";
 import { LiaStarHalf, LiaStarSolid } from "react-icons/lia";
 import React, { Fragment, useEffect, useState } from "react";
+import { RiShoppingCart2Fill, RiShoppingCart2Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Comments } from "../../static";
-import { FaCircleCheck } from "react-icons/fa6";
 import { IoIosMore } from "react-icons/io";
 import NewArrivals from "../../components/newArrivals/NewArrivals";
 import SingleLoading from "../../components/singleLoading/SingleLoading";
+import { addToCart } from "../../context/slices/cartSlices";
+import { toggleHeart } from "../../context/slices/wishlistSlices";
 import { useGetProductByIdQuery } from "../../context/api/productApi";
 import { useParams } from "react-router-dom";
 
 const SinglePage = () => {
   const [indexImage, setIndexImage] = useState(0);
+  const wishlistData = useSelector((state) => state.wishlist.value);
+  const cartData = useSelector((state) => state.cart.value);
+
+  const dispatch = useDispatch();
   const { Id } = useParams();
   const { data, isLoading } = useGetProductByIdQuery(Id);
   const product = data?.payload;
@@ -56,6 +64,7 @@ const SinglePage = () => {
                 {product?.urls?.map((url, inx) => (
                   <div className="single__img__left__images__img" key={inx}>
                     <img
+                      className={`${inx === indexImage ? "active" : ""} `}
                       onClick={() => setIndexImage(inx)}
                       src={url}
                       alt="product.img"
@@ -103,7 +112,30 @@ const SinglePage = () => {
                 <p className="single__info__sizes__size">Large</p>
                 <p className="single__info__sizes__size">X-Large</p>
               </div>
-              <button className="single__info__button">Add to Cart</button>
+              <div className=" single__info__buttons">
+                <button
+                  className="single__info__buttons__like"
+                  onClick={() => dispatch(toggleHeart(product))}
+                >
+                  {wishlistData.some(
+                    (element) => element._id === product?._id
+                  ) ? (
+                    <FaHeart />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </button>
+                <button
+                  onClick={() => {
+                    dispatch(addToCart(product));
+                  }}
+                  className="single__info__buttons__cart"
+                >
+                  {cartData?.some((element) => element._id === product._id)
+                    ? "Added Cart"
+                    : "Add to cart"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -112,7 +144,7 @@ const SinglePage = () => {
       <div className="container">
         <div className="single__comments">
           {Comments?.map((el) => (
-            <div className="single__comments__comment">
+            <div key={el?.id} className="single__comments__comment">
               <div className="single__comments__comment__rating">
                 <span>{getRating()}</span>
                 <IoIosMore />

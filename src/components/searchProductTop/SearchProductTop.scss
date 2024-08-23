@@ -1,0 +1,29 @@
+.header__search__top__input__values {
+  position: absolute;
+  border-radius: 20px;
+  margin: 0;
+
+  top: 75%;
+  left: 0;
+  width: 83%;
+  padding: 10px;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 10px;
+  &__frame {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &__img {
+      width: 40px;
+      height: 40px;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+}
