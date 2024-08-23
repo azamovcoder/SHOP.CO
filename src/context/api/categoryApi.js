@@ -4,7 +4,7 @@ export const categoryApi = api.injectEndpoints({
   endpoints: (build) => ({
     getCategory: build.query({
       query: (params) => ({
-        url: "/categories",
+        url: "/category",
         params,
       }),
       providesTags: ["Category"],
@@ -12,7 +12,7 @@ export const categoryApi = api.injectEndpoints({
 
     createCategory: build.mutation({
       query: (body) => ({
-        url: "/categories",
+        url: "/category",
         method: "POST",
         body,
       }),

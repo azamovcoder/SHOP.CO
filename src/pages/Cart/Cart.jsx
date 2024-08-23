@@ -17,7 +17,6 @@ import Module from "../../components/Module/Module";
 
 const Cart = () => {
   const cartData = useSelector((state) => state.cart.value);
-  console.log(cartData);
   const dispatch = useDispatch();
   useEffect(() => {
     window.scroll(0, 0);
@@ -37,7 +36,6 @@ const Cart = () => {
 
     setTotalPrice(total);
   }, [cartData]);
-  console.log(cartData);
   const subtotal = totalPrice;
 
   const total = subtotal;

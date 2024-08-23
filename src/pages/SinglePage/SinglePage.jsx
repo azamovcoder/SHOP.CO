@@ -22,7 +22,7 @@ const SinglePage = () => {
 
   const getRating = () => {
     let res = [];
-    for (let i = 0; i < Math.trunc(product?.Rating); i++) {
+    for (let i = 0; i < Math.trunc(product?.rating); i++) {
       res.push(
         <LiaStarSolid
           color="gold"
@@ -31,7 +31,7 @@ const SinglePage = () => {
         />
       );
     }
-    if (product?.Rating % 1 > 0.4) {
+    if (product?.rating % 1 > 0.4) {
       res.push(
         <LiaStarHalf
           color="gold"
@@ -70,7 +70,7 @@ const SinglePage = () => {
             <div className="single__info">
               <h2 className="single__info__title">{product?.title}</h2>
               <span className="single__info__rating">
-                {getRating()} {product?.Rating}/ 5{" "}
+                {getRating()} {product?.rating}/ 5{" "}
               </span>
               <div className="single__info__prices">
                 <p className="single__info__prices__price">${product?.price}</p>
@@ -108,9 +108,7 @@ const SinglePage = () => {
           </div>
         </div>
       )}
-      {
-        
-      }
+      {}
       <div className="container">
         <div className="single__comments">
           {Comments?.map((el) => (

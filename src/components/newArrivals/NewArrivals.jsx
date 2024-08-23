@@ -11,7 +11,7 @@ const NewArrivals = () => {
       <div className="newArrivals">
         <div className=" container">
           <h2 className="newArrivals__title">NEW ARRIVALS</h2>
-          <Products limit={4} />
+          <Products limit={4} skip={1} />
         </div>
         <button className="newArrivals__button">
           <NavLink to={"/shop"}>View All</NavLink>

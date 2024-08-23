@@ -26,7 +26,6 @@ const ManageCategory = () => {
     deleteCategory(categoryId);
     setDeleteCategoryById(null);
   };
-  console.log(data);
   return (
     <Fragment>
       <div className="manage__category">

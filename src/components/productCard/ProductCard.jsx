@@ -14,7 +14,7 @@ import { toggleHeart } from "../../context/slices/wishlistSlices";
 const ProductCard = ({ product }) => {
   const getRating = () => {
     let res = [];
-    for (let i = 0; i < Math.trunc(product?.Rating); i++) {
+    for (let i = 0; i < Math.trunc(product?.rating); i++) {
       res.push(
         <LiaStarSolid
           color="gold"
@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
         />
       );
     }
-    if (product?.Rating % 1 > 0.4) {
+    if (product?.rating % 1 > 0.4) {
       res.push(
         <LiaStarHalf
           color="gold"
@@ -32,11 +32,6 @@ const ProductCard = ({ product }) => {
         />
       );
     }
-    // for (let i = Math.round(product?.Rating); i < 6; i++) {
-    //   res.push(
-    //     <FaRegStar key={`empty-${i}`} className="cart__item__rating__star" />
-    //   );
-    // }
 
     return res;
   };
@@ -48,7 +43,10 @@ const ProductCard = ({ product }) => {
     <Fragment>
       <div key={product?.id} className="products__cards__card">
         <div className="products__cards__card__img">
-          <img src={product?.urls[0]} alt="product.img" />
+          <NavLink to={`/singlePage/${product?._id}`}>
+            <img src={product?.urls[0]} alt="product.img" />
+          </NavLink>
+
           <button
             onClick={() => dispatch(toggleHeart(product))}
             className="products__cards__card__img__btn"
@@ -73,17 +71,16 @@ const ProductCard = ({ product }) => {
               <RiShoppingCart2Line />
             )}
           </button>
-          <NavLink to={`/singlePage/${product?._id}`}>
-            <h3 className="products__cards__card__info__title">
-              {product?.title}
-            </h3>
-          </NavLink>
+
+          <h3 className="products__cards__card__info__title">
+            {product?.title}
+          </h3>
 
           <div className="products__cards__card__info__rating">
             <div className="products__cards__card__info__rating__rate">
               {getRating()}
             </div>
-            {product?.Rating} <span>/ 5</span>
+            {product?.rating} <span>/ 5</span>
           </div>
           {product?.price < product?.oldPrice ? (
             <div className="products__cards__card__info__prices">

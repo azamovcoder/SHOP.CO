@@ -34,7 +34,7 @@ const EditProduct = ({ editProduct, setEditProduct }) => {
 
   useEffect(() => {
     if (isError) {
-      console.log(error);
+      error;
       setEditProduct(null);
     }
   }, [isError]);

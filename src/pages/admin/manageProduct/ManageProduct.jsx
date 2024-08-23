@@ -12,7 +12,6 @@ const ManageProduct = () => {
   const [deleteProduct, setDeleteProduct] = useState(null);
   const [editProduct, setEditProduct] = useState(null);
   const products = data?.payload;
-  console.log(products);
   return (
     <Fragment>
       <div className="manage__products">

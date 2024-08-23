@@ -8,6 +8,7 @@ import { HiOutlineX } from "react-icons/hi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import ProductSearch from "../../components/productsearch/ProductSearch";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
   const wishlistData = useSelector((state) => state.wishlist.value);
   const cartData = useSelector((state) => state.cart.value);
+  const [search, setSearch] = useState("");
   return (
     <Fragment>
       {remove ? (
@@ -81,7 +83,19 @@ const Header = () => {
             <span>
               <IoSearchOutline />
             </span>
-            <input type="text" placeholder="Search for products..." />
+            <input
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              type="text"
+              placeholder="Search for products..."
+            />
+            {search ? (
+              <div className="">
+                <ProductSearch search={search} />
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="header__right__links">
             <button onClick={() => setShowSearch((p) => !p)}>

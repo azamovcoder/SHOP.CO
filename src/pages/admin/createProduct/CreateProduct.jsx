@@ -1,14 +1,15 @@
 import "./CreateProduct.scss";
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
+import { message } from "antd";
 import { useCreateProductMutation } from "../../../context/api/productApi";
 import { useGetCategoryQuery } from "../../../context/api/categoryApi";
 import { useNavigate } from "react-router-dom";
 
 const initialState = {
   title: "",
-  desc: "",
+  description: "",
   price: "",
   oldPrice: "",
   categoryId: "",
@@ -20,7 +21,7 @@ const initialState = {
 
 const CreateProduct = () => {
   const { data: categoryData } = useGetCategoryQuery();
-  const [createProduct] = useCreateProductMutation();
+  const [createProduct, { isLoading, isSuccess }] = useCreateProductMutation();
   const [productData, setProductData] = useState(initialState);
   const navigate = useNavigate();
 
@@ -40,6 +41,13 @@ const CreateProduct = () => {
     }));
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      message.success("Product created successfully!");
+      navigate("/admin/manage-product");
+    }
+  }, [isSuccess, setProductData]);
+
   const handleCreateProduct = async (e) => {
     e.preventDefault();
 
@@ -57,7 +65,6 @@ const CreateProduct = () => {
     try {
       await createProduct(formData).unwrap();
       setProductData(initialState);
-      navigate("/admin/manage-product");
     } catch (error) {
       console.error(error);
     }
@@ -83,7 +90,7 @@ const CreateProduct = () => {
             <div className="create__product__form__item">
               <textarea
                 id="desc"
-                name="desc"
+                name="description"
                 value={productData.desc}
                 onChange={handleChange}
                 placeholder="Desc"
@@ -187,8 +194,8 @@ const CreateProduct = () => {
               />
             </div>
 
-            <button type="submit" className="form-button">
-              Create Product
+            <button disabled={isLoading} type="submit" className="form-button">
+              {isLoading ? "Loading ..." : "Create Product"}
             </button>
           </form>
         </div>

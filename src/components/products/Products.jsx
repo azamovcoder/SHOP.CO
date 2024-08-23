@@ -6,8 +6,8 @@ import ProductCard from "../productCard/ProductCard";
 import ProductLoading from "../productLoading/ProductLoading";
 import { useGetProductsQuery } from "../../context/api/productApi";
 
-const Products = ({ limit }) => {
-  const { data, isLoading } = useGetProductsQuery({ limit });
+const Products = ({ limit, skip }) => {
+  const { data, isLoading } = useGetProductsQuery({ limit, skip });
   const products = data?.payload;
   return (
     <Fragment>

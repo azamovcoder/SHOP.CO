@@ -7,7 +7,6 @@ import { useGetProfileQuery } from "../../context/api/adminApi";
 
 const Admin = () => {
   const { data } = useGetProfileQuery();
-  console.log(data);
   return (
     <Fragment>
       <div className="admin">
